@@ -148,12 +148,19 @@ function add(task){
       //   TaskofList.splice(1,1)
 
       // }
+      // better remove
       else {
-        element = element.replace('\n', '').trim()
-         element = element.split(" ").slice(1).join(' ');
-         TaskofList.splice(parseInt(element) - 1,1)
-         if(parseInt(element) > TaskofList.length) console.log("not available number");
+
+       removable = parseInt(removable.split(" ").slice(1).join(' '));
+       tasksList.splice(removable - 1,1);
+       if(removable > tasksList.length) console.log("number does not exist")
+
+        // element = element.replace('\n', '').trim()
+        //  element = element.split(" ").slice(1).join(' ');
+        //  TaskofList.splice(parseInt(element) - 1,1)
+        //  if(parseInt(element) > TaskofList.length) console.log("not available number");
        }
+       
       
   
     }
