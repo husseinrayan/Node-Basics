@@ -15,6 +15,12 @@ function startApp(name){
   process.stdin.on('data', onDataReceived);
   console.log(`Welcome to ${name}'s application!`)
   console.log("--------------------")
+  try{
+    TaskofList = JSON.parse(fs.readFileSync("database.json").toString());
+    }
+    catch(error){
+      console.log('error')
+    }
 }
 
 
@@ -89,6 +95,13 @@ function unknownCommand(c){
  * @returns {void}
  */
 function hello(){
+
+  var fs = require("fs");
+var Data = fs.readFileSync("database.json", "utf8");
+var lines = Data.split("\n");
+var lines = lines.map(function (line) {
+  return line.split("\t");
+});
   
   // console.log('hello!')
 }
@@ -101,6 +114,12 @@ function hello(){
  */
 function quit(){
   console.log('Quitting now, goodbye!')
+  try {
+    fs.writeFileSync("database.json",JSON.stringify(TaskofList,null,3))
+      } catch(error){
+    console.log('error')
+      }
+  
   process.exit();
 }
 // function help make list of exit ,quit and help
@@ -110,7 +129,10 @@ function help(){
    //console.log('the commands are: exit ,quit ,help')
 
 }
- var TaskofList =[]
+ var TaskofList=[{task:"edit",done:true}
+            ,{task:"add",done:true}
+            ,{task:"remove",done:false}
+            ,{task:"list",done:true}];
 //var TaskofList = ["task 1", "task 2"]
 // function list 
 function list(){
