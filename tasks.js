@@ -42,7 +42,7 @@ function onDataReceived(text) {
     hello();
   }
  
-  else if(text === 'help\n'){
+  else if(text.trim().startsWith('help')){
     help();
   }
   else{
@@ -85,7 +85,7 @@ function quit(){
 }
 // function help make list of exit ,quit and help
 function help(){
-  console.log('the commands are: exit ,quit ,help')
+  //console.log('the commands are: exit ,quit ,help')
 
 }
 
