@@ -34,12 +34,14 @@ function startApp(name){
  * @returns {void}
  */
 function onDataReceived(text) {
+  console.log(text.replace("\n","")  + "!".trim() . split() )
   if (text === 'quit\n' || text === 'exit\n') {
     quit();
   }
-  else if(text === 'hello\n'){
+  else if(text.trim().startsWith('hello')) {
     hello();
   }
+ 
   else if(text === 'help\n'){
     help();
   }
@@ -67,7 +69,8 @@ function unknownCommand(c){
  * @returns {void}
  */
 function hello(){
-  console.log('hello!')
+  
+  // console.log('hello!')
 }
 
 
