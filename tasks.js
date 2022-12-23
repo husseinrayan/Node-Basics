@@ -113,7 +113,7 @@ function list(){
     console.log("no tasks to do")
   }
   TaskofList.forEach((element, index) => {
-    console.log(`${index + 1} - [ ] ${element}`)
+    console.log(`${TaskofList.indexOf(index)+1}-[*]${index}`);
   })
 }
 //function add 
