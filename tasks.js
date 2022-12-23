@@ -15,14 +15,31 @@ function startApp(name){
   process.stdin.on('data', onDataReceived);
   console.log(`Welcome to ${name}'s application!`)
   console.log("--------------------")
+  if(process.argv.length == 2 )
+  {
+h ="database.json"
+  } else {
+    h = process.argv[2]
+  }
+ read(h)
+}
+function read(h){
   try{
-    TaskofList = JSON.parse(fs.readFileSync("database.json").toString());
+    TaskofList = JSON.parse(fs.readFileSync(h).toString());
     }
     catch(error){
       console.log('error')
     }
 }
+function save(h){
+  try {
+    fs.writeFileSync(h,JSON.stringify(TaskofList,null,3))
 
+      } catch(error){
+    console.log('error')
+      }
+      process.exit();
+}
 
 /**
  * Decides what to do depending on the data that was received
@@ -114,13 +131,26 @@ var lines = lines.map(function (line) {
  */
 function quit(){
   console.log('Quitting now, goodbye!')
-  try {
-    fs.writeFileSync("database.json",JSON.stringify(TaskofList,null,3))
-      } catch(error){
-    console.log('error')
-      }
+  if(process.argv.length == 2 )
+  {
+r ="database.json"
+  } else {
+    r = process.argv[2]
+  }
+  save(h)
+
+
+
+
+
+
+  // try {
+  //   fs.writeFileSync("database.json",JSON.stringify(TaskofList,null,3))
+  //     } catch(error){
+  //   console.log('error')
+  //     }
   
-  process.exit();
+  // process.exit();
 }
 // function help make list of exit ,quit and help
 function help(){
@@ -179,8 +209,8 @@ function add(task){
       else {
 
        removable = parseInt(removable.split(" ").slice(1).join(' '));
-       tasksList.splice(removable - 1,1);
-       if(removable > tasksList.length) console.log("number does not exist")
+       TaskofList.splice(removable - 1,1);
+       if(removable > TaskofList.length) console.log("number does not exist")
 
         // element = element.replace('\n', '').trim()
         //  element = element.split(" ").slice(1).join(' ');

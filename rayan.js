@@ -1,9 +1,5 @@
 [
     {
-        "task": "list",
-        "done": true
-     },
-    {
        "task": "edit",
        "done": true
     },
@@ -16,12 +12,6 @@
        "done": false
     },
     {
-        "task": "RAYAN",
-        "done": true
-     },
-   
-    {
-       "task": "RAYAN",
-       "done": false
+       "task": "RAYAN"
     }
  ]
