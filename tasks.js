@@ -59,7 +59,12 @@ function onDataReceived(text) {
      return console.log("error");
     edit(text);
   }
-  
+  else if(text.startsWith('check')){
+    check(text)
+  }
+  else if(text.startsWith('uncheck')){
+    uncheck(text)
+  }
   else{
     unknownCommand(text);
   }
@@ -175,6 +180,20 @@ function add(task){
       TaskofList[TaskofList.length -1] = task;
       }
     }
-
+//check function
+function check(text){
+  if(text.slice(5).trim()==""){
+    console.log("error")
+  }else{
+    TaskofList[parseInt(text.slice(6).trim())-1].done =true;
+  }
+}
+//uncheck function
+function uncheck(text){
+  if(text.slice(7).trim()==""){
+    console.log("error")
+  }else{
+    TaskofList[parseInt(text.slice(8).trim())-1].done =false;
+  }}
 // The following line starts the application
 startApp("Rayan Hussein")
