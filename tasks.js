@@ -34,11 +34,14 @@ function startApp(name){
  * @returns {void}
  */
 function onDataReceived(text) {
-  if (text === 'quit\n') {
+  if (text === 'quit\n' || text === 'exit\n') {
     quit();
   }
   else if(text === 'hello\n'){
     hello();
+  }
+  else if(text === 'help\n'){
+    help();
   }
   else{
     unknownCommand(text);
@@ -76,6 +79,11 @@ function hello(){
 function quit(){
   console.log('Quitting now, goodbye!')
   process.exit();
+}
+// function help make list of exit ,quit and help
+function help(){
+  console.log('the commands are: exit ,quit ,help')
+
 }
 
 // The following line starts the application
