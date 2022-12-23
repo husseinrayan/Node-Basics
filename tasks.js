@@ -48,6 +48,9 @@ function onDataReceived(text) {
   else if(text === 'list\n'){
     list();
   }
+  else if(text.split(" ")[0]=== 'add'){
+    add(text);
+  }
   else{
     unknownCommand(text);
   }
@@ -91,12 +94,26 @@ function help(){
   //console.log('the commands are: exit ,quit ,help')
 
 }
-var TaskofList = ["task 1", "task 2"]
+ var TaskofList =[]
+//var TaskofList = ["task 1", "task 2"]
 // function list 
 function list(){
+  if(TaskofList.length === 0) {
+    console.log("no tasks to do")
+  }
   TaskofList.forEach((element, index) => {
     console.log(`${index + 1} - [ ] ${element}`)
   })
+}
+//function add 
+function add(task){
+  if(!task) {
+    console.error("error needs an argument")
+  } else {
+    task = task.replace('\n', '').trim()
+    task = task.split(" ").slice(1).join(' ');
+    TaskofList.push(task)
+  }
 }
 
 // The following line starts the application
