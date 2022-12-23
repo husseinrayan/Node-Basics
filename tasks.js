@@ -51,6 +51,10 @@ function onDataReceived(text) {
   else if(text.split(" ")[0]=== 'add'){
     add(text);
   }
+  else if(text.startsWith('remove') ){
+    remove(text)
+  }
+  
   else{
     unknownCommand(text);
   }
@@ -115,6 +119,38 @@ function add(task){
     TaskofList.push(task)
   }
 }
+// function remove(test){
+  // if (text==="remove"){ 
+  //   task = task.splice(-1)
+  // }
+  // if(text.slice(6).trim() == ""){
+  //   NewList.shift();
+  // }else {
+  //   NewList.splice(parseInt(text.substring(6))-1,1)
+  // }
+  
+    function remove(element){
+      if(element === 'remove\n') {
+        TaskofList.pop()
+      } 
+      // else if ( element === 'remove 1\n'){
+      //   TaskofList.splice(0,1)
+
+      // }
+      // else if ( element === 'remove 2\n'){
+      //   TaskofList.splice(1,1)
+
+      // }
+      else {
+        element = element.replace('\n', '').trim()
+         element = element.split(" ").slice(1).join(' ');
+         TaskofList.splice(parseInt(element) - 1,1)
+         if(parseInt(element) > TaskofList.length) console.log("not available number");
+       }
+      
+  
+    }
+
 
 // The following line starts the application
 startApp("Rayan Hussein")
