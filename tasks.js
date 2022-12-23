@@ -45,6 +45,9 @@ function onDataReceived(text) {
   else if(text.trim().startsWith('help')){
     help();
   }
+  else if(text === 'list\n'){
+    list();
+  }
   else{
     unknownCommand(text);
   }
@@ -87,6 +90,13 @@ function quit(){
 function help(){
   //console.log('the commands are: exit ,quit ,help')
 
+}
+var TaskofList = ["task 1", "task 2"]
+// function list 
+function list(){
+  TaskofList.forEach((element, index) => {
+    console.log(`${index + 1} - [ ] ${element}`)
+  })
 }
 
 // The following line starts the application
