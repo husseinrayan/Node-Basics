@@ -51,9 +51,7 @@ function onDataReceived(text) {
   else if(text.split(" ")[0]=== 'add'){
     add(text);
   }
-  else if(text.startsWith('remove') ){
-    remove(text)
-  }
+  
   
   else{
     unknownCommand(text);
