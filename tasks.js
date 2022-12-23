@@ -105,9 +105,9 @@ function quit(){
 }
 // function help make list of exit ,quit and help
 function help(){
-  console.log("hello    :hello dear!\nhello+any :hello any!\nlist    :display list of tasks\nadd     :add task to the list\nremove      :remove element from the list\nquit or exit :exit the app")
-
-  //console.log('the commands are: exit ,quit ,help')
+   //console.log("hello    :hello dear!\nhello+any :hello any!\nlist    :display list of tasks\nadd     :add task to the list\nremove      :remove element from the list\nquit or exit :exit the app\ncheck    :to check if the task is done\nuncheck      :to uncheck if the task is not done")
+   console.log("hello    :hello dear!\nhello+any :hello any!\nlist    :display list of tasks\nadd     :add task to the list\nremove      :remove element from the list\nquit or exit :exit the app\ncheck    :to check if the task is done\nuncheck      :to uncheck if the task is not done")
+   //console.log('the commands are: exit ,quit ,help')
 
 }
  var TaskofList =[]
